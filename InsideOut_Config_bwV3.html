@@ -100,12 +100,13 @@
 		    }
 		    return default_ || false;
 		}
-		
-		$("#b-submit").click(function() {
-			var location = getQueryParam('return_to', 'pebblejs://close#');
-			document.location = location + encodeURIComponent(JSON.stringify(saveOptions()));
-		});
 
+		$("#b-submit").click(function() {
+			var location = getQueryParam('return_to', 'pebblejs://close#') + 
+			                     encodeURIComponent(JSON.stringify(saveOptions()));
+			document.location = location;
+		});
+		
 		var version = getParam('v');
 		if (!version || (parseVersion(version) < parseVersion(LATEST))) {
 			$('#update-available').removeClass('hidden');
